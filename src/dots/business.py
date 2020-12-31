@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-from .models import Dot
-
 
 @dataclass
 class DotDTO:
