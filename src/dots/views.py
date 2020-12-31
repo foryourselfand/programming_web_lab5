@@ -19,7 +19,8 @@ def create(request):
     if request.method == 'POST':
         form = DotCreateForm(request.POST)
         if form.is_valid():
-            result: bool = in_area(**form.cleaned_data)
-            Dot.objects.create(user=request.user, result=result, **form.cleaned_data)
+            dot: Dot = Dot(user=request.user, **form.cleaned_data)
+            dot.result = in_area(dot=dot)
+            dot.save()
             return redirect('dots:table')
     return render(request, 'dots/create.html', {'form': form})

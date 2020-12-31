@@ -7,6 +7,7 @@ from django.shortcuts import render
 
 
 def signup(request):
+    form = UserCreationForm()
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -16,21 +17,17 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('dots:table')
-    else:
-        form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
 
 def login_view(request):
+    form = AuthenticationForm()
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
-            # form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             login(request, user)
             return redirect('dots:table')
-    else:
-        form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})

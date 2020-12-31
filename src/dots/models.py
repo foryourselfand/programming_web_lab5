@@ -10,4 +10,4 @@ class Dot(models.Model):
     result = models.BooleanField()
 
     def __str__(self):
-        return f'x={self.x}; y={self.y}; r={self.r}; user={self.user}'
+        return f'Dot: {self.x=}; {self.y=}; {self.r=}; {self.result=}; {self.user=}'
