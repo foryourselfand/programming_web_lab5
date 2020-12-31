@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p><a href="{% url 'dots:create' %}">Create dot?</a></p>
+  <h2>Table</h2>
+  {% if not dots %}
+  <h3>Empty</h3>
+  {% else %}
+    <table>
+
+      <tbody>
+        <tr>
+            <th scope="col">x</th>
+            <th scope="col">y</th>
+            <th scope="col">r</th>
+            <th scope="col">result</th>
+        </tr>
+        {% for dot in dots  %}
+            <tr>
+                <td>{{ dot.x }}</td>
+                <td>{{ dot.y }}</td>
+                <td>{{ dot.r }}</td>
+                <td>{{ dot.result }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% endif %}
+{% endblock %}
