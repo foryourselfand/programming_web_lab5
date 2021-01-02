@@ -2,7 +2,8 @@
 
 without styles and js drawing graph for now and with smol count of url roots
 
-план Django + React + TypeScript = web_programming_lab5
+todo
+Django + React + TypeScript
 
 * в таблице кнопки изменения, удаления, добавление точек по правам (группам), просмотр по ним же
 * сортировать по каждому столбцу, кнопка скрытия, показа всех точек
